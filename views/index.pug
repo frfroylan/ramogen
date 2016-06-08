@@ -1,0 +1,25 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title RAMOGEN
+    link(rel='stylesheet', href='/assets/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Raleway|Open+Sans:400,700', rel='stylesheet', type='text/css')
+    script(src='/assets/javascripts/script.js')
+  body
+    textarea#movieName(name='movieName', placeholder='What movie are you looking for?')
+    button(onclick='movieScript()') Search
+    #container
+      .movieContainer-top
+        .movieTitle
+          h1#movieTitle-text
+        .movieRating
+          h3#movieRating-text
+      .movieContainer-mid
+        .movieImage
+          img#movieImage-url(src='', alt='')
+      .movieContainer-bot
+        .movieActors
+          #movieActors-list
+        .moviePlot
+          p#moviePlot-text
