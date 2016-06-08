@@ -4,6 +4,7 @@ movieScript = function(){
 	movie = movie.split(' ');
 	var data = "http://www.omdbapi.com/?t=";
 	var endData ="&y=&plot=short&r=json";
+	var container = document.getElementById('container').style.display = 'block';
 
 	//For loop for taking care of textarea value (movie to search) with multiple words
 	for(var x = 0; x < movie.length; x++){
@@ -36,23 +37,26 @@ movieScript = function(){
 	myRequest.onreadystatechange = function(){
 		if(myRequest.readyState === 4 && myRequest.status === 200){
 			var jsonObj = JSON.parse(myRequest.responseText);//Grabs json object
-			// document.getElementById('movieTitle-text').innerHTML = jsonObj.Title;
-			// document.getElementById('movieRating-text').innerHTML =  jsonObj.Rated;
-			// document.getElementById('movieImage-url').attribute('src' , jsonObj.Poster);
-			// document.getElementById('moviePlot-text').innerHTML = jsonObj.Plot;
-			// document.getElementById('movieActors-list');
-
 			var actors = jsonObj.Actors;
-			var ul = '<ul>';
-			var actorList = '';
+			var actorList = '<ul><li>';
 			for(var x = 0; x < actors.length; x++){
 				if(actors[x] !== ',' ){
-					actorList = '<li>' + actors[x];
+					actorList += actors[x];
 				}
-				else{
-					actorList = '</li>';
+				else if(actors[x] === ','){
+					actorList += '</li><li>';
 				}
 			}
+			actorList += '</li></ul>';
+			var actorHeader = '<h2 class="movieActors-header">Actors:</h2>';
+			var rated = '<span class="movieRating-rated" >Rated: </span>';
+			var plot = '<h2 class="moviePlot-header">Plot:</h2>';
+			document.getElementById('movieActors-list').innerHTML = actorHeader + actorList;
+			document.getElementById('movieTitle-text').innerHTML = jsonObj.Title;
+			document.getElementById('movieRating-text').innerHTML =  rated +jsonObj.Rated;
+			document.getElementById('movieImage-url').setAttribute('src' , jsonObj.Poster);
+			document.getElementById('moviePlot-text').innerHTML = plot + jsonObj.Plot;
+
 		}
 	}
 	myRequest.open("GET", data, true);

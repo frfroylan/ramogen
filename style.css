@@ -1,23 +1,98 @@
 body{
 	margin: 0;
 	padding: 0;
-	background-color: #333;
+	background-color: #28B19E;
+	font-family: 'Raleway';
 }
 textarea{
 	margin-left: 50px;
 	margin-top: 30px;
 	width: 200px;
-	height: 15px;
-	display: block;
+	height:30px;
+	display: inline-block;
 }
 button{
-	width: 70px;
-	height: 20px;
-	margin-left: 260px;
-	margin-top: -20px;
-	display: block;
+	width: 75px;
+	height: 36px;
+	margin-top: 30px;
+	margin-left: 5px;
+	display: inline-block;
 	position: absolute;
-	background-color: lightblue;
+	background-color: #FFB839;
 	color: #333;
 	border: none;
+	border-radius: 3px;
+	font-size: 16px;
+	transition: color .5s,
+		      background-color .5s;
 }
+button:hover{
+	background-color: #EB4958;
+	color: #F3B74C;
+}
+/** Movie Container Setup **/
+#container{
+	display: none;
+	width: 800px;
+	background-color: white;
+	border-radius: 10px;
+	margin: 0 auto;
+	margin-top: -20px;
+	padding: 10px 20px 10px 20px;
+	-webkit-box-shadow: 4px 4px 20px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 4px 4px 20px 0px rgba(0,0,0,0.75);
+	box-shadow: 4px 4px 20px 0px rgba(0,0,0,0.75);
+}
+.movieContainer-top,
+.movieContainer-bot{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	width: 100%;
+}
+.movieContainer-top{
+	height: 90px;
+}
+.movieContainer-mid{
+	display: block;
+	width: 100%;
+}
+.movieTitle,
+.moviePlot{
+	width: 70%;
+}
+.movieRating,
+.movieActors{
+	width: 30%;
+}
+.movieImage{
+	text-align: center;
+}
+/**Movie Container Top Text**/
+#movieTitle-text,
+#movieRating-text{
+	color: #EB4958;
+	font-size: 42px;
+}
+#movieRating-text{
+	text-align: center;
+	margin-top: 27px;
+}
+.movieRating-rated{
+	color: #EB4958;
+	font-size: 22px;
+	margin-right: 10px;
+}
+/**Movie Container Bot Text **/
+.movieActors-header,
+.moviePlot-header{
+	margin: 0;
+	padding: 0;
+	color:  #EB4958;
+	margin-top: 40px;
+}
+#movieActors-list,
+#moviePlot-text{
+	color:  #EB4958;
+}
+
